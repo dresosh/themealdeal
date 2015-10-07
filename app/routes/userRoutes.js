@@ -40,6 +40,7 @@ module.exports = function( app, passport ) {
 		res.render( 'login' );
 	});
 
+
 	app.post( '/login', passport.authenticate( 'local-login', {
 		successRedirect : '/profile',
 		failureRedirect : '/login'
@@ -50,6 +51,10 @@ module.exports = function( app, passport ) {
 	app.get( '/signup', function( req, res ) {
 		res.render( 'signup' );
 	});
+
+	app.get( '/signup/vendors', function( req, res) {
+		res.render( 'vendor_signup')
+	})
 
 	//	process the signup form
 	app.post( '/signup', passport.authenticate( 'local-signup', {

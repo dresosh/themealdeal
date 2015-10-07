@@ -5,10 +5,12 @@ var mongoose	= require( 'mongoose' ),
 	var userSchema = mongoose.Schema( {
 
 		local		: {
+			name	: String,
 			email	: String,
 			password: String,
 			isvendor: { type: Boolean,  default: 0 },
 			businessname: String,
+			businessaddress: String,
 			longitude: Number,
 			latitude: Number
 		},
