@@ -11,7 +11,7 @@ function index ( req, res ) {
 }
 
 function create ( req, res ) {
-	//makes a single deal and dynamically pulls in vendor data from current global.user
+	//makes a single deal
 
 	console.log( global.user )
 	var deal 	= new Deal()
