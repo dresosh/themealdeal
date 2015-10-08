@@ -22,6 +22,7 @@ var express 		= require( "express" ),
 	helpers			= require( 'express-helpers' ),
 	path 			= require( 'path' ),
 	Twit			= require( 'twit' );
+	// Time 			= require( 'time');
 
 
 
@@ -77,6 +78,12 @@ app.use( '/vendors', vendorRouter );
 app.use( '/api', apiRouter );
 app.use( '/admin', adminRouter);
 
+
+// // CURRENT TIME FEED
+// var currentTime = new Time( {
+// 	Username : "cochranepaul",
+// 	API_Key  : "3I7SAF54GFVB"
+// })
 
 
 // TWITTER FEED

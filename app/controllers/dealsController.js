@@ -11,16 +11,18 @@ function index ( req, res ) {
 }
 
 function create ( req, res ) {
-	//makes a single deal
+	//makes a single deal and dynamically pulls in vendor data from current global.user
 
 	console.log( global.user )
 	var deal 	= new Deal()
 
-	deal.title	= req.body.title
-	deal.price	= req.body.price
-	deal.vendor = global.user.local.businessname
-	deal.longitude = global.user.local.longitude
-	deal.latitude = global.user.local.latitude
+	deal.title		= req.body.title
+	deal.price		= req.body.price
+	deal.startdate 	= req.body.startprice
+	deal.enddate 	= req.body.enddate
+	deal.vendor 	= global.user.local.businessname
+	deal.longitude 	= global.user.local.longitude
+	deal.latitude 	= global.user.local.latitude
 
 	deal.save( function( err ) {
 		if ( err ) res.send( err )

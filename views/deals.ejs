@@ -9,7 +9,9 @@
                     <% for(var i=0; i< deals.length; i++) {  %>
                         <ul>
                           <li><b>Name : </b> <%= deals[i].title %></li>
-                          <li><b>Price : </b> $<%= deals[i].price %></li>
+                          <li><b>Price : </b> <%= deals[i].price %></li>
+                          <li><b>Start Date : </b> <%= deals[i].startdate %></li>
+                          <li><b>End Date : </b> <%= deals[i].enddate %></li>
                           <% if (global.user) { %>
                           <li><%- link_to('show', 'deals/'+deals[i].id) %></li>
                           <% } %>
@@ -27,12 +29,20 @@
         <div class="col-sm-6">
              <form action="/deals" method="post">
                     <div class="form-group">
-                        <label>Title</label>
+                        <label>Deal</label>
                         <input type="text" class="form-control" name="title">
                     </div>
                     <div class="form-group">
                         <label>Price</label>
-                        <input type="text" class="form-control" name="price">
+                        <input type="number" class="form-control" name="price">
+                    </div>
+                    <div class="form-group">
+                        <label>Start Date</label>
+                        <input type="date" class="form-control" name="startdate">
+                    </div>
+                    <div class="form-group">
+                        <label>End Date</label>
+                        <input type="date" class="form-control" name="enddate">
                     </div>
 
                     <button type="submit" class="btn btn-warning btn-lg">Submit</button>
