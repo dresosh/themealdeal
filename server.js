@@ -99,7 +99,12 @@ io.on( 'connection', function( socket ) {
       stream.stop();
     }
 
-    stream = twitter.stream('statuses/filter', { track: '#mealdeal' } );
+
+	var myLocation = { locations: [ '-118.3180543482','34.0991560312','-118.3179371357','34.0992469221' ] }
+	var track = { track: 'obama' }
+
+
+    stream = twitter.stream('statuses/filter', track );
 
     stream.on( 'tweet', function ( tweet ) {
 			var data = {};
