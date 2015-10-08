@@ -14,7 +14,7 @@ adminRouter.route( '/users/:user_id' )
 	
 	.get( adminController.show ) //gets individual deal
 	//.put( isAdmin, adminController.update ) //updates individual deal
-	//.delete( isAdmin, adminController.destroy ) //deletes an individual deal
+	.delete( adminController.destroy ) //deletes an individual deal
 
 
 
@@ -25,7 +25,7 @@ function isAdmin( req, res, next ) {
 		return next();
 	}
 
-	res.redirect( '/' );
+	console.log("ends")
 }
 
 module.exports = adminRouter
