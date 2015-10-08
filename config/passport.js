@@ -175,12 +175,14 @@ module.exports = function( passport ){
 
 //   var newUser	= new User();
 
-// newUser.local.email 	= 'deals2@gmail.com';
-// newUser.local.password 	= newUser.generateHash('password');
-// newUser.local.isvendor = true; 
-// newUser.local.businessname = 'adb';
-// newUser.local.longitude = "34.0219";
-// newUser.local.latitude = "-118.4814";
+// newUser.local.email 	= 'deals3@gmail.com';
+// newUser.local.password 	= newUser.generateHash('admin');
+// newUser.local.isAdmin = true; 
+
 // newUser.save();
+
+
+
+
 
 };

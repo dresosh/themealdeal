@@ -10,13 +10,26 @@ var express 			= require( 'express' ),
 
 
 adminRouter.route( '/' ) // displays and adds to all deals
+
 	.get( adminController.index );
+	console.log( global.user )
 
 adminRouter.route( '/:user_id' )
-	.get( adminController.show ) //gets individual deal
-	// .put( adminController.update ) //updates individual deal
-	// .delete( adminController.destroy ) //deletes an individual deal
+	
+	.get( isAdmin, adminController.show ) //gets individual deal
+	//.put( isAdmin, adminController.update ) //updates individual deal
+	//.delete( isAdmin, adminController.destroy ) //deletes an individual deal
 
 
+
+//route middleware to make sure a user is logged in as admin
+function isAdmin( req, res, next ) {
+	//if authenticated move on
+	if ( global.user && global.user.local.isAdmin === true ){
+		return next();
+	}
+
+	res.redirect( '/' );
+}
 
 module.exports = adminRouter

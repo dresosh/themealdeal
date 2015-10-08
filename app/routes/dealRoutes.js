@@ -13,7 +13,7 @@ var express 		= require( 'express' ),
     if ( req.isAuthenticated() ) {
         return next();
     }
-    console.log( req.isAuthenticated() );
+    // console.log( req.isAuthenticated() );
 
     // Otherwise the request is always redirected to the home page
     res.redirect( '/'  );

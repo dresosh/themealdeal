@@ -12,7 +12,8 @@ var mongoose	= require( 'mongoose' ),
 			businessname: String,
 			businessaddress: String,
 			longitude: Number,
-			latitude: Number
+			latitude: Number,
+			isAdmin: { type: Boolean, default: 0}
 		},
 		facebook	: {
 			id		: String,
