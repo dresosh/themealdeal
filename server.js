@@ -18,6 +18,7 @@ var express 		= require( "express" ),
 	vendorRouter	= require( './app/routes/vendorRoutes' ),
 	userRouter		= require( './app/routes/userRoutes' ),
 	apiRouter		= require( './app/routes/apiRoutes'),
+	adminRouter		= require( './app/routes/adminRoutes'),
 	helpers			= require( 'express-helpers' ),
 	path 			= require( 'path' ),
 	Twit			= require( 'twit' );
@@ -73,7 +74,8 @@ userRouter( app, passport ); //loads the routes and passes  in passport
 // app.use( '/users', userRouter ) when you get a request starting with users use the userRouter
 app.use( '/deals', dealRouter ); //when you get a request starting with deal use dealRouter
 app.use( '/vendors', vendorRouter );
-app.use( '/api', apiRouter )
+app.use( '/api', apiRouter );
+app.use( '/admin', adminRouter);
 
 
 

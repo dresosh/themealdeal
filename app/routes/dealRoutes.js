@@ -19,12 +19,6 @@ var express 		= require( 'express' ),
     res.redirect( '/'  );
   }
 
-
-
-
-
-
-
 dealRouter.route( '/' ) // displays and adds to all deals
 	.get( dealsController.index )
 	.post( dealsController.create )

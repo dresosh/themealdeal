@@ -1,9 +1,18 @@
- </div>
+    <div class="page-header text-user">
+        <h1><span class="fa fa-cutlery"></span> ADMIN PAGE</h1>
+    </div>
         <div class="col-sm-6">
             <div class="well">
-                <h3><span class="fa fa-table"></span> The Meal Deals</h3>
+                <h3><span class="fa fa-table"></span> Meal Deal Users</h3>
 
-                
+                  <% for(var i=0; i < users.length; i++) {  %>
+                        <ul>
+                          <li><b>Name : </b> <%= users[i].local.email %></li>
+                          
+             
+                        </ul>
+                    <% } %>
+
 
             </div>
         </div>

@@ -6,10 +6,6 @@ module.exports = function( app, passport ) {
 		res.render( 'index' ); //loads the index.ejs file
 	});
 
-	app.get( '/users', function( req, res ) {
-		res.render( 'users' );
-	});
-
 	//	PROFILE
 	//	=======
 	app.get( '/profile', isLoggedIn, function( req, res ) {
