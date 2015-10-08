@@ -7,7 +7,11 @@
 
                   <% for(var i=0; i < users.length; i++) {  %>
                         <ul>
-                          <li><b>Name : </b> <%= users[i].local.email %></li>
+                          <li><b>Name : </b> <%= users[i].local.name %></li>
+                          <li><b>Email : </b> <%= users[i].local.email %></li>
+                          <li><b>Vendor : </b> <%= users[i].local.isvendor %></li>
+                          <li><b>Businessname : </b> <%= users[i].local.businessname %></li>
+                          <li><%- link_to('show', 'admin/'+users[i].id) %></li>
                           
              
                         </ul>

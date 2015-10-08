@@ -12,6 +12,16 @@ function index ( req, res ) {
 }
 
 
+function show ( req, res ) {
+	//gets a single deal
+	User.findById( req.params.user_id, function( err, user ) {
+		if( err ) res.send( err )
+			// res.json( user)
+		res.render( 'users_show', {user: user} );
+	})
+}
+
 module.exports = {
 	index	: index,
+	show	: show
 }
