@@ -7,9 +7,10 @@ var mongoose 	= require( 'mongoose' ),
 	DealSchema = new Schema( {
 		title:  {type: String, required: true},
 		price:  {type: Number, required: true},
-		// date:  	{type: Date, required: true},
+		startdate: Date,
+		enddate: Date, 
 		vendor: String,
-		longditude: Number,
+		longitude: Number,
 		latitude: Number,
 		created_at: Date
 	})

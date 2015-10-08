@@ -173,14 +173,16 @@ module.exports = function( passport ){
     } ) );
 
 
-// var newUser	= new User();
+//   var newUser	= new User();
 
-// newUser.local.email 	= 'new@gmail.com';
-// newUser.local.password 	= newUser.generateHash( 'password' );
-// newUser.local.isvendor = true;
-// newUser.local.businessname = 'Joes Pizza';
-// newUser.local.longditude = 1234;
-// newUser.local.latitude = 1234;
+// newUser.local.email 	= 'deals3@gmail.com';
+// newUser.local.password 	= newUser.generateHash('admin');
+// newUser.local.isAdmin = true; 
+
 // newUser.save();
+
+
+
+
 
 };

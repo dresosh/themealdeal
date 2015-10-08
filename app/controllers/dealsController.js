@@ -16,11 +16,13 @@ function create ( req, res ) {
 	console.log( global.user )
 	var deal 	= new Deal()
 
-	deal.title	= req.body.title
-	deal.price	= req.body.price
-	deal.vendor = global.user.local.businessname
-	deal.longditude = global.user.local.longditude
-	deal.latitude = global.user.local.latitude
+	deal.title		= req.body.title
+	deal.price		= req.body.price
+	deal.startdate 	= req.body.startdate
+	deal.enddate 	= req.body.enddate
+	deal.vendor 	= global.user.local.businessname
+	deal.longitude 	= global.user.local.longitude
+	deal.latitude 	= global.user.local.latitude
 
 	deal.save( function( err ) {
 		if ( err ) res.send( err )

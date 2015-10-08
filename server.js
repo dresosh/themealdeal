@@ -11,16 +11,18 @@ var express 		= require( "express" ),
 	morgan			= require( 'morgan' ),
 	cookieParser	= require( 'cookie-parser' ),
 	session			= require( 'express-session' ),
-	configDB 		= require( './config/database.js' ),
+	configDB 		= process.env.MONGOLAB_URI || 'mongodb://localhost:27017/mealdeal',
 	bodyParser 		= require( 'body-parser' ),
 	flash			= require( 'connect-flash' ),
 	dealRouter 		= require( './app/routes/dealRoutes' ),
 	vendorRouter	= require( './app/routes/vendorRoutes' ),
 	userRouter		= require( './app/routes/userRoutes' ),
 	apiRouter		= require( './app/routes/apiRoutes'),
+	adminRouter		= require( './app/routes/adminRoutes'),
 	helpers			= require( 'express-helpers' ),
 	path 			= require( 'path' ),
 	Twit			= require( 'twit' );
+	// Time 			= require( 'time');
 
 
 
@@ -28,18 +30,18 @@ var express 		= require( "express" ),
 //	CONFIG
 //	======
 
-mongoose.connect( configDB.url ) // connects to the database
+mongoose.connect( configDB ) // connects to the database
 
 require( "./config/passport" )( passport ) //passes in passport for configuration
 
 require( 'express-helpers' )( app );
 // set up express application
-app.use( morgan( "dev" ) )
+//app.use( morgan( "dev" ) )
 app.use( cookieParser() ) //reads cookies which are needed for authentication
 app.use( bodyParser.urlencoded( { extended: true}) ) // gets info from the html form
 app.use( bodyParser.json() )
 app.use( flash() )
-helpers( app )
+
 
 
 app.set( "view engine", "ejs" ) //sets up ejs for templating
@@ -59,7 +61,7 @@ app.use( session( {
 app.use( passport.initialize() );
 app.use( passport.session() ); //persistent login session
 app.use( function ( req, res, next ){
-	console.log( "User: ", req.user )
+	console.log( global.user )
 	global.user = req.user;
 	next()
 });
@@ -73,8 +75,15 @@ userRouter( app, passport ); //loads the routes and passes  in passport
 // app.use( '/users', userRouter ) when you get a request starting with users use the userRouter
 app.use( '/deals', dealRouter ); //when you get a request starting with deal use dealRouter
 app.use( '/vendors', vendorRouter );
-app.use( '/api', apiRouter )
+app.use( '/api', apiRouter );
+app.use( '/admin', adminRouter);
 
+
+// // CURRENT TIME FEED
+// var currentTime = new Time( {
+// 	Username : "cochranepaul",
+// 	API_Key  : "3I7SAF54GFVB"
+// })
 
 
 // TWITTER FEED
@@ -85,6 +94,13 @@ var twitter = new Twit( {
   access_token: process.env.TWITTER_ACCESS_TOKEN,
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
+
+// FACEBOOK 
+
+// var facebook = new FBKey( {
+// 	api_key: process.env.FACEBOOK_API_KEY,
+// 	consumer_sectet: process.env.FACEBOOK_API_SECRET
+// });
 
 var stream;
 var searchTerm;

@@ -24,8 +24,6 @@ function create ( req, res ) {
 		vendor.email = req.body.email
 		vendor.password = req.body.password
 
-		console.log(vendor)
-
 
 		vendor.save( function( err ) {
 			if( err ) {

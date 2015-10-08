@@ -1,6 +1,13 @@
-<div style="width: 250px; height: 250px; margin: auto" id="map">
-
+<div style="width: 250px; height: 250px; margin: auto" id="map"></div>
 <script>
+
+
+  var myjson;
+  $.getJSON("../api/deals", function(json) {
+    console.log("json")
+    myjson = json;
+    $("#map").trigger("json:loaded")
+  });
 
 
 function addMarker( position, map ){
@@ -21,6 +28,7 @@ function addMarker( position, map ){
   //})
 }
 
+$("#map").on("json:loaded", initMap );
 
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -29,30 +37,52 @@ function initMap() {
   });
   var infoWindow = new google.maps.InfoWindow({map: map});
 
-  // Try HTML5 geolocation.
-  if (navigator.geolocation) {
-     navigator.geolocation.getCurrentPosition(function(position) {
-       var pos = {
-         lat: position.coords.latitude,
-         lng: position.coords.longitude
-       };
+      // Try HTML5 geolocation.
+      if (navigator.geolocation) {
+         navigator.geolocation.getCurrentPosition(function(position) {
+           var pos = {
+             lat: position.coords.latitude,
+             lng: position.coords.longitude
+           };
 
-       infoWindow.setPosition(pos);
-       infoWindow.setContent('Location found.');
-       map.setCenter(pos);
-     }, function() {
-       handleLocationError(true, infoWindow, map.getCenter());
-     });
-  } else {
-     // Browser doesn't support Geolocation
-     handleLocationError(false, infoWindow, map.getCenter());
-  } 
-  //On event of "restaurants:loaded"
-  // loop through restaurants and add marker for each: addMarker( `position`, mapToPopulate )
-  google.maps.event.addListener(map, "click", function( position ) {
-    console.log( position )
-    addMarker( position, map )
-  })
+           infoWindow.setPosition(pos);
+           infoWindow.setContent('Location found.');
+           map.setCenter(pos);
+         }, function() {
+           handleLocationError(true, infoWindow, map.getCenter());
+         });
+      } else {
+         // Browser doesn't support Geolocation
+         handleLocationError(false, infoWindow, map.getCenter());
+      } 
+      // loop through restaurants and add marker for each: addMarker( `position`, mapToPopulate )
+      var vendorMarkers = [];
+      for (var i=0; i < (myjson.length-1); i++) {
+        var vendorInfo = myjson[i];
+        console.log(vendorInfo.latitude, vendorInfo.longitude)
+        //var vendorPosition = new google.maps.LatLng("34.0219", "-118.4814")
+        var vendorPosition = new google.maps.LatLng(vendorInfo.longitude, vendorInfo.latitude);
+        
+        var vendorMarker = new google.maps.Marker({
+          position: vendorPosition,
+          map: map
+        });
+
+        vendorMarkers.push(vendorMarker);
+        //getVendorInfo( vendorInfo, vendorMarker);
+        //vendorMarker.setMap( map )
+      }
+      //console.log(vendorMarkers);
+      /*google.maps.event.addListener(map, "click", function( position ) {
+        console.log( position )
+        addMarker( position, map )
+      })*/
+        var vendorPosition1 = new google.maps.LatLng(34.0219, -120.4814)
+          var marker = new google.maps.Marker({
+              position: vendorPosition1,
+                  map: map
+              });
+
 }
 
 
@@ -63,16 +93,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                        'Error: The Geolocation service failed.' :
                        'Error: Your browser doesn\'t support geolocation.');
 }
-window.onload = initMap
-
-   </script>
+  </script>
   
- 
-
-
-
-
-</div>
 
 
 <div class="container">
@@ -96,7 +118,7 @@ window.onload = initMap
                         <strong>email</strong>: <%= user.local.email %><br>
                         <strong>password</strong>: <%= user.local.password %>
                         <strong>businessname</strong>: <%= user.local.businessname %>
-                        <strong>longditude</strong>: <%= user.local.longditude %>
+                        <strong>longditude</strong>: <%= user.local.longitude %>
                         <strong>latitude</strong>: <%= user.local.latitude %>
                     </p>
 
