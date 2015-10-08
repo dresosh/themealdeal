@@ -99,24 +99,18 @@ io.on( 'connection', function( socket ) {
       stream.stop();
     }
 
-
-
-    stream = twitter.stream( 'statuses/filter', { track: searchTerm, language: 'en' });
+    stream = twitter.stream('statuses/filter', { track: '#mealdeal' } );
 
     stream.on( 'tweet', function ( tweet ) {
-      var data = {};
-      data.name = tweet.user.name;
-      data.screen_name = tweet.user.screen_name;
-      data.text = tweet.text;
-      data.user_profile_image = tweet.user.profile_image_url;
-      socket.emit( 'tweets', data );
+			var data = {};
+			data.name = tweet.user.name;
+			data.screen_name = tweet.user.screen_name;
+			data.text = tweet.text;
+			data.user_profile_image = tweet.user.profile_image_url;
+			socket.emit( 'tweets', data );
     });
   });
 });
-
-
-
-
 
 
 
