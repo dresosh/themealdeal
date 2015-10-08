@@ -1,5 +1,7 @@
+
+
 $('button.form-control[id^="vendorchange_"]').on('click', function (){
-	// console.log($(this).html())
+	console.log($(this).html())
 	if($(this).html() === 'false') {
 		$(this).html('true');
 	} else {

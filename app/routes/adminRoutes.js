@@ -5,18 +5,14 @@ var express 			= require( 'express' ),
 	bodyParser 			= require( 'body-parser' );
 	adminController		= require( '../controllers/adminController' );
 
-
-
-
-
-adminRouter.route( '/' ) // displays and adds to all deals
+adminRouter.route( '/users' ) // displays and adds to all deals
 
 	.get( adminController.index );
 	console.log( global.user )
 
-adminRouter.route( '/:user_id' )
+adminRouter.route( '/users/:user_id' )
 	
-	.get( isAdmin, adminController.show ) //gets individual deal
+	.get( adminController.show ) //gets individual deal
 	//.put( isAdmin, adminController.update ) //updates individual deal
 	//.delete( isAdmin, adminController.destroy ) //deletes an individual deal
 
