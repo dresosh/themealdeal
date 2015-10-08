@@ -18,7 +18,7 @@ function create ( req, res ) {
 
 	deal.title		= req.body.title
 	deal.price		= req.body.price
-	deal.startdate 	= req.body.startprice
+	deal.startdate 	= req.body.startdate
 	deal.enddate 	= req.body.enddate
 	deal.vendor 	= global.user.local.businessname
 	deal.longitude 	= global.user.local.longitude
