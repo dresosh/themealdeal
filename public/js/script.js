@@ -11,11 +11,6 @@
 		// }
 
 
-<<<<<<< HEAD
-	});
-
-	$( 'button.btn[id^="deleteuser_"]' ).on( 'click', function (){
-=======
 $('button.form-control[id^="vendorchange_"]').on('click', function (){
 	var id = ($($(this).parents().get(1)).children().get(0).innerHTML)
 	var text = ($($(this).parents().get(1)).children().get(3).innerText)
@@ -41,7 +36,7 @@ $('button.form-control[id^="vendorchange_"]').on('click', function (){
 	// console.log($('#vendorchange').html())
 	// if ($('#vendorchange').html() === false) {
 	// 	console.log( "this works")
-	// } 
+	// }
 >>>>>>> upstream/master
 
 		var id = ( $( $( this ).parents().get( 1 ) ).children().get( 0 ).innerHTML )
