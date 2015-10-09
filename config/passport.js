@@ -181,9 +181,9 @@ module.exports = function( passport ){
 
 //   var newUser	= new User();
 
-// newUser.local.email 	= 'admin@admin.com';
-// newUser.local.password 	= newUser.generateHash('admin');
-// newUser.local.isAdmin = true;
+// newUser.local.email 	= 'vendor@vendor.com';
+// newUser.local.password 	= newUser.generateHash('vendor');
+// newUser.local.isvendor = true;
 
 // newUser.save();
 
