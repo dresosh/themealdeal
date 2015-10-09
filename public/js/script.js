@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 $(  'button.form-control[id^="vendorchange_"]' ).on( 'click', function (){
 	console.log( "goodbye" )
 	if( $( this ).html() === 'false' ) {
@@ -10,40 +9,6 @@ $(  'button.form-control[id^="vendorchange_"]' ).on( 'click', function (){
 	// if ( $( '#vendorchange' ).html() === false ) {
 	// 	console.log( "this works" )
 	// }
-=======
-$( 'button.form-control[id^="vendorchange_"]' ).on( 'click', function (){
-
-	var id = ($($(this).parents().get(1)).children().get(0).innerHTML)
-	var text = ($($(this).parents().get(1)).children().get(3).innerText)
-	var token = $(this).data;
-		console.log(id)
-		console.log(text)
-		console.log(token)
-
- 	if($(this).html() === 'false') {
- 		$(this).html('true');
- 		$.ajax({
-		url: '/admin/users/' + id,
-		type: 'PUT',
-		data: {isvendor: true},
-		success:function(msg){
-        console.log("ran this")
-    }
-	})
-
- 	} else {
- 		$(this).html('false');
- 		$.ajax({
-		url: '/admin/users/' + id,
-		type: 'PUT',
-		data: {isvendor: false},
-		success:function(msg){
-        console.log("ran this")
-    }
-	})
- 	}
-
->>>>>>> upstream/master
 
 
 } );
