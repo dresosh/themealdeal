@@ -7,15 +7,17 @@
 
 
 				<% for(var i=0; i< deals.length; i++) {  %>
-					<ul class"meal-list">
-					  <li><b>Name : </b> <%= deals[i].title %></li>
-					  <li><b>Price : </b> <%= deals[i].price %></li>
-					  <li><b>Start Date : </b> <%= deals[i].startdate %></li>
-					  <li><b>End Date : </b> <%= deals[i].enddate %></li>
-					  <% if (global.user) { %>
-					  <li><%- link_to('show', 'deals/'+deals[i].id) %></li>
-					  <% } %>
-					</ul>
+					<div class="meal-container"><!-- meal-container -->
+						<ul class"meal-list">
+						  <li><b>Name : </b> <%= deals[i].title %></li>
+						  <li><b>Price : </b> <%= deals[i].price %></li>
+						  <li><b>Start Date : </b> <%= deals[i].startdate %></li>
+						  <li><b>End Date : </b> <%= deals[i].enddate %></li>
+						  <% if (global.user) { %>
+						  <li><%- link_to('show', 'deals/'+deals[i].id) %></li>
+						  <% } %>
+						</ul>
+					</div><!-- meal-container -->
 				<% } %>
 
 		</div>
