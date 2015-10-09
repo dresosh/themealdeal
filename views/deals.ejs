@@ -1,27 +1,5 @@
-    <div class="page-header text-user">
-        <h1><span class="fa fa-cutlery"></span> The Best Deals in Town</h1>
-    </div>
-        <div class="col-sm-6">
-            <div class="well">
-                <h3><span class="fa fa-table"></span> The Meal Deals</h3>
+<%- include ./partials/deals.ejs%>
 
-
-                    <% for(var i=0; i< deals.length; i++) {  %>
-                        <ul>
-                          <li><b>Name : </b> <%= deals[i].title %></li>
-                          <li><b>Price : </b> <%= deals[i].price %></li>
-                          <li><b>Start Date : </b> <%= deals[i].startdate %></li>
-                          <li><b>End Date : </b> <%= deals[i].enddate %></li>
-                          <% if (global.user) { %>
-                          <li><%- link_to('show', 'deals/'+deals[i].id) %></li>
-                          <% } %>
-                        </ul>
-                    <% } %>
-
-            </div>
-        </div>
-
-<%# if global.user.local.isvendor: true { %>
 
 
     <div class="row">
@@ -45,9 +23,7 @@
                         <input type="date" class="form-control" name="enddate">
                     </div>
 
-                    <button type="submit" class="btn btn-warning btn-lg">Submit</button>
+                    <button type="submit" class="btn btn-warning">Submit</button>
                 </form>
         </div>
     </div>
-
-     <%# } %>

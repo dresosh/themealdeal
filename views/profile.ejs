@@ -1,171 +1,79 @@
-<div style="width: 250px; height: 250px; margin: auto" id="map"></div>
-<script>
+<div class="profile-container"><!-- profile-container div -->
 
 
-  var myjson;
-  $.getJSON("../api/deals", function(json) {
-    console.log("json")
-    myjson = json;
-    $("#map").trigger("json:loaded")
-  });
+	<!-- Acount Information -->
+	<div class="row"><!-- row div -->
+		<div class="col-md-10 col-md-offset-1">
 
-
-function addMarker( position, map ){
-  console.log( position.latlng )
-  //dont add for loop in here 
-  var nMark = new google.maps.Marker( {
-    position: new google.maps.LatLng( position.latLng.H, position.latLng ),
-    map: map
-  })
-  console.log( nMark )
-  console.log( map )
-  //google.maps.event.addListener( nMark, 'click', function( ){
-    //var infowindow = new google.maps.InfoWindow({
-      //content: "its working"
-
-    //});
-    //infowindow.open( map, nMark )
-  //})
-}
-
-$("#map").on("json:loaded", initMap );
-
-function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
-   //center: {lat: -34.397, lng: 150.644},
-    zoom: 12
-  });
-  var infoWindow = new google.maps.InfoWindow({map: map});
-
-      // Try HTML5 geolocation.
-      if (navigator.geolocation) {
-         navigator.geolocation.getCurrentPosition(function(position) {
-           var pos = {
-             lat: position.coords.latitude,
-             lng: position.coords.longitude
-           };
-
-           infoWindow.setPosition(pos);
-           infoWindow.setContent('Location found.');
-           map.setCenter(pos);
-         }, function() {
-           handleLocationError(true, infoWindow, map.getCenter());
-         });
-      } else {
-         // Browser doesn't support Geolocation
-         handleLocationError(false, infoWindow, map.getCenter());
-      } 
-      // loop through restaurants and add marker for each: addMarker( `position`, mapToPopulate )
-      var vendorMarkers = [];
-      for (var i=0; i < (myjson.length-1); i++) {
-        var vendorInfo = myjson[i];
-        console.log(vendorInfo.latitude, vendorInfo.longitude)
-        //var vendorPosition = new google.maps.LatLng("34.0219", "-118.4814")
-        var vendorPosition = new google.maps.LatLng(vendorInfo.longitude, vendorInfo.latitude);
-        
-        var vendorMarker = new google.maps.Marker({
-          position: vendorPosition,
-          map: map
-        });
-
-        vendorMarkers.push(vendorMarker);
-        //getVendorInfo( vendorInfo, vendorMarker);
-        //vendorMarker.setMap( map )
-      }
-      //console.log(vendorMarkers);
-      /*google.maps.event.addListener(map, "click", function( position ) {
-        console.log( position )
-        addMarker( position, map )
-      })*/
-        var vendorPosition1 = new google.maps.LatLng(34.0219, -120.4814)
-          var marker = new google.maps.Marker({
-              position: vendorPosition1,
-                  map: map
-              });
-
-}
+			<div class="info-container"><!-- info-container -->
+					<h1>Welcome <%= user.facebook.name %></h1>
+				<div class="personalProfile">
+					<h4>
+						Here you can find the newest Meal Deals in your area and let your friends know what food,
+						is delicious and affordable near you.
+					</h4>
+				</div>
+			</div><!-- info-container -->
+		</div>
+	</div><!-- row div -->
 
 
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
- infoWindow.setPosition(pos);
- infoWindow.setContent(browserHasGeolocation ?
-                       'Error: The Geolocation service failed.' :
-                       'Error: Your browser doesn\'t support geolocation.');
-}
-  </script>
-  
+
+	<!-- Deals -->
+	<div class="row"><!-- row div -->
+		<div class="deals-container"><!-- map-container -->
+			<div class="col-md-10 col-md-offset-1">
+				<%- include ./partials/deals.ejs%>
+			</div>
+		</div><!-- map-container -->
+	</div><!-- row div -->
 
 
-<div class="container">
-
-    <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-    </div>
-
-    <div class="row">
-
-        <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
-
-                <% if (user.local.email) { %>
-
-                    <p>
-                        <strong>id</strong>: <%= user._id %><br>
-                        <strong>email</strong>: <%= user.local.email %><br>
-                        <strong>password</strong>: <%= user.local.password %>
-                        <strong>businessname</strong>: <%= user.local.businessname %>
-                        <strong>longditude</strong>: <%= user.local.longitude %>
-                        <strong>latitude</strong>: <%= user.local.latitude %>
-                    </p>
-
-                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
-                        <% } else { %>
-                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                <% } %>
-
-            </div>
-        </div>
-
-    </div>
-
-</div>
-
-<div class="container">
-
-    <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-    </div>
-
-    <div class="row">
-
-        <!-- FACEBOOK INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-                <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
-
-                <% if (user.facebook.token) { %>
-
-                    <p>
-                        <strong>id</strong>: <%= user.facebook.id %><br>
-                        <strong>token</strong>: <%= user.facebook.token %><br>
-                        <strong>email</strong>: <%= user.facebook.email %><br>
-                        <strong>name</strong>: <%= user.facebook.name %>
-                    </p>
-
-                    <a href="/unlink/facebook" class="btn btn-primary">Unlink</a>
-                        <% } else { %>
-                        <a href="/connect/facebook" class="btn btn-primary">Connect Facebook</a>
-                    <% } %>
 
 
-            </div>
-        </div>
+	<!-- <div class="col-md-5">
+		<div class="deals-container"></div>
+	</div> -->
 
-    </div>
 
-</div>
+	<div class="row"><!-- row div -->
+		<!-- <div class="col-md-5 col-md-offset-1">
+			<div class="map-container">
+			</div>
+		</div> -->
+		<div class="col-md-5">
+		</div>
+	</div><!-- row div -->
+
+
+
+	<!-- Map -->
+	<div class="row"><!-- row div -->
+		<div class="map-container"><!-- map-container -->
+			<div class="col-md-10 col-md-offset-1">
+				<h1>Locate Vendors in your area with meal deals</h1>
+					<div class="map" id="map"></div>
+			</div>
+		</div><!-- map-container -->
+	</div><!-- row div -->
+
+
+
+	<!-- Tweets -->
+
+	<!-- <div class="row">
+		<div class="col-md-10 col-md-offset-1">
+		 	<div class="profile-tweetBox-container">
+				<div class="tweetHeader">Tweet about Meal Deals</div>
+				<div class="profile-tweetBox"></div>
+			</div>
+		</div>
+	</div> -->
+
+
+
+
+
+
+</div><!-- profile-container div -->

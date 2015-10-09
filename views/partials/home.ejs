@@ -1,1 +1,40 @@
-<h1>Home</h1>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="social-container">
+			<div class="col-md-3 col-md-offset-1">
+			 	<div class="tweetBox-container">
+					<div class="tweetHeader">Tweet about Meal Deals</div>
+					<div class="tweetBox"></div>
+				</div>
+			</div>
+
+
+			<div class="col-md-3 col-md-offset-3">
+				<div class="home-deals-container">
+					<div class="dealHeader">Lates Meal Deals</div>
+
+					<% for(var i=0; i< deals.length; i++) {  %>
+						<div class="meal-container"><!-- meal-container -->
+							<ul class"meal-list">
+							  <li><b>Name : </b> <%= deals[i].title %></li>
+							  <li><b>Price : </b> <%= deals[i].price %></li>
+							  <li><b>Start Date : </b> <%= deals[i].startdate %></li>
+							  <li><b>End Date : </b> <%= deals[i].enddate %></li>
+							  <% if (global.user) { %>
+							  <li><%- link_to('show', 'deals/'+deals[i].id) %></li>
+							  <% } %>
+							</ul>
+						</div><!-- meal-container -->
+					<% } %>
+
+
+
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -95,7 +95,7 @@ var twitter = new Twit( {
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
-// FACEBOOK 
+// FACEBOOK
 
 // var facebook = new FBKey( {
 // 	api_key: process.env.FACEBOOK_API_KEY,
@@ -116,23 +116,22 @@ io.on( 'connection', function( socket ) {
     }
 
 
+	var myLocation = { locations: [ '-118.3180543482','34.0991560312','-118.3179371357','34.0992469221' ] }
+	var track = { track: '#mealdeal' }
 
-    stream = twitter.stream( 'statuses/filter', { track: searchTerm, language: 'en' });
+
+    stream = twitter.stream('statuses/filter', track );
 
     stream.on( 'tweet', function ( tweet ) {
-      var data = {};
-      data.name = tweet.user.name;
-      data.screen_name = tweet.user.screen_name;
-      data.text = tweet.text;
-      data.user_profile_image = tweet.user.profile_image_url;
-      socket.emit( 'tweets', data );
+			var data = {};
+			data.name = tweet.user.name;
+			data.screen_name = tweet.user.screen_name;
+			data.text = tweet.text;
+			data.user_profile_image = tweet.user.profile_image_url;
+			socket.emit( 'tweets', data );
     });
   });
 });
-
-
-
-
 
 
 

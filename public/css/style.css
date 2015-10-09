@@ -1,7 +1,278 @@
-body {
-	/*background: red;*/
+div, h1, h4 {
+	font-family: 'Montserrat', sans-serif;
 }
+
+
+body {
+	background: #f2f2f2;
+}
+
+
+.logo {
+	width: 200px;
+	height: 201px;
+	position: relative;
+	top: -167px;
+	left: 4;
+	z-index: 100;
+}
+
 
 ul {
 	text-transform: uppercase;
+}
+
+
+h1, h4 {
+	padding-left: 20px;
+}
+
+
+
+.tweetBox-container {
+	width: 420px;
+	height: 350px;
+	padding: 0;
+	background: #dddddd;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	margin-top: 10px;
+}
+
+.profile-tweetBox-container {
+	height: 350px;
+	padding: 0;
+	background: #dddddd;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	margin-top: 10px;
+}
+
+.tweetBox {
+	height: 300px;
+	overflow: hidden;
+	padding: 0;
+}
+
+.tweetHeader {
+	width: 100%;
+	height: 50px;
+	background: #25b6d5;
+	color: white;
+	text-align: center;
+	line-height: 50px;
+	font-size: 30px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.dealHeader {
+	width: 100%;
+	height: 50px;
+	background: #8c8c8c;
+	color: white;
+	text-align: center;
+	line-height: 50px;
+	font-size: 30px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.tweets {
+	background: #b5b5b5; /* Old browsers */
+	background: -moz-linear-gradient(top,  #b5b5b5 0%, #eeeeee 49%, #b5b5b5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b5b5b5), color-stop(49%,#eeeeee), color-stop(100%,#b5b5b5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #b5b5b5 0%,#eeeeee 49%,#b5b5b5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #b5b5b5 0%,#eeeeee 49%,#b5b5b5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #b5b5b5 0%,#eeeeee 49%,#b5b5b5 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #b5b5b5 0%,#eeeeee 49%,#b5b5b5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5b5b5', endColorstr='#b5b5b5',GradientType=0 ); /* IE6-9 */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#b5b5b5',GradientType=0 ); /* IE6-9 */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cedce7', endColorstr='#596a72',GradientType=0 ); /* IE6-9 */
+	color: black;
+	width: 100%;
+	height: 100px;
+}
+
+.twitImg-container {
+	width: 70px;
+	height: 70px;
+	float: left;
+	background: red
+}
+
+.twitImg {
+	width: 70px;
+	height: 70px;
+	margin: 15px 10px 0 15px;
+	border-radius: 100px;
+	border: 1px solid black;
+}
+
+.topP {
+	padding-top: 8px;
+}
+
+li a {
+	color: white;
+}
+
+li a:hover {
+	color: #a20707 !important;
+}
+
+.message-container {
+	width: 300px;
+	height: 80px;
+	background: #e8e8e8;
+	float: right;
+	margin: 10px 20px 0 0;
+	border-radius: 5px;
+	word-wrap: break-word;
+	overflow-y: scroll;
+}
+
+p {
+	padding-left: 5px;
+	padding-right: 5px;
+	line-height: 15px;
+	box-sizing: border-box;
+}
+
+.imageDeal-container {
+	width: 100%;
+	max-height: 500px;
+	background: gray;
+}
+
+
+.home-deals-container {
+	width: 420px;
+	height: 350px;
+	padding: 0;
+	background: #dddddd;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	margin-top: 10px;
+	float: left;
+	overflow: hidden;
+}
+
+.marginLeft {
+	margin-left:135px;
+}
+
+.info-container {
+	height:200px;
+	margin-top: -24px;
+}
+
+.navbar-brand {
+	width: 200px;
+}
+
+.navbar {
+	background: black;
+	border-radius: 0 !important;
+}
+
+
+.imageHeader {
+	width: 100%;
+	height: auto;
+	max-height: 500px;
+}
+
+.profile-container {
+	margin-top: -150px;
+}
+
+.map-container {
+	background: #c2c2c2;
+	height: 620px;
+	padding-top: 10px;
+}
+
+.map {
+	height: 500px;
+	margin: auto;
+	box-shadow: 0px 0px 10px #888888;
+}
+
+
+.personalProfile {
+	width: 500px;
+	height: 100px;
+}
+
+.deals-container {
+	min-height: 500px;
+	max-height: 1500px;
+	background: #8f8f8f;
+	overflow: scroll;
+}
+
+.deal-tweets-container {
+	max-width: 1000px;
+	height: 500px;
+	background: red;
+}
+
+
+.social-container {
+	height: 500px;
+	margin-top: -160px;
+}
+
+.login-container {
+	height: 400px;
+	margin-top: -190px;
+}
+
+
+
+
+.navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    background-color: transparent;
+     border: none;
+     border-radius: 0;
+}
+
+ul.meal-list {
+	list-style-type: none;
+	height: 200px;
+	width: 200px;
+	background: red;
+}
+
+ul {
+	list-style-type: none;
+}
+
+li {
+	list-style-type: none;
+}
+
+.meal-container {
+	height: 100px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#eeeeee+0,cccccc+100;Gren+3D */
+	background: #eeeeee; /* Old browsers */
+	background: -moz-linear-gradient(top,  #eeeeee 0%, #cccccc 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #eeeeee 0%,#cccccc 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+}
+
+.navbar {
+     border:none;
 }

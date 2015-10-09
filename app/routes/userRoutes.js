@@ -3,14 +3,32 @@ module.exports = function( app, passport ) {
 	// LAYOUT PAGE
 	// =================
 	app.get( '/', function( req, res ) {
-		res.render( 'index' ); //loads the index.ejs file
-	});
+		var Deal 	= require( '../models/deal.js' )
+		Deal.find( function( err, deals ) {
+			if( err ) {
+				res.send ( err )
+			}
+			// res.json( deals )
+			res.render( 'index', {
+				deals: deals // will get the user out of the session
+			})
+		})
+	})
 
 	//	PROFILE
 	//	=======
 	app.get( '/profile', isLoggedIn, function( req, res ) {
-		res.render( 'profile', {
-			user : req.user // will get the user out of the session
+		var Deal 	= require( '../models/deal.js' )
+		//gets all deals
+		Deal.find( function( err, deals ) {
+			if( err ) {
+				res.send ( err )
+			}
+			// res.json( deals )
+			res.render( 'profile', {
+				user : req.user,
+				deals: deals // will get the user out of the session
+			})
 		})
 	})
 
