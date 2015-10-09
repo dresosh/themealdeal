@@ -6,7 +6,7 @@ function index ( req, res ) {
 		console.log( global.user )
 	if( err ) res.send ( err )
 		// res.json( users )
-		res.render ( 'users', {users: users} );
+		res.render ( 'admin_users', {users: users} );
 
 	})
 }
@@ -17,7 +17,7 @@ function show ( req, res ) {
 		if( err ) res.send( err )
 			// res.json( user)
 		console.log( req.params.user_id );
-		res.render( 'users_show', {user: user} );
+		res.render( 'admin_users_show', {user: user} );
 
 
 	})
@@ -35,8 +35,26 @@ function destroy ( req, res ) {
 	}) 
 }
 
+function update ( req, res ) {
+	//update a deal
+	User.findById( req.params.user_id, function( err, user ) {
+		
+		if( err ) res.send
+
+		if( req.body.name ) user.name 			= req.body.name
+		if( req.body.email ) user.email 		= req.body.email
+		if( req.body.isvendor ) user.isvendor	= req.body.isvendor
+
+		user.save( function( err ) {
+			if( err ) res.send( err )
+			res.json( {success: true, message: "User has been updated"})
+		})
+	})
+}
+
 module.exports = {
 	index	: index,
 	show	: show,
+	update 	: update,
 	destroy	: destroy
 }
