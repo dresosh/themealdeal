@@ -1,4 +1,4 @@
-$( 'button.form-control[id^="vendorchange_"]' ).on( 'click', function (){
+$(  'button.form-control[id^="vendorchange_"]' ).on( 'click', function (){
 	console.log( "goodbye" )
 	if( $( this ).html() === 'false' ) {
 		$( this ).html( 'true' );
@@ -11,7 +11,7 @@ $( 'button.form-control[id^="vendorchange_"]' ).on( 'click', function (){
 	// }
 
 
-});
+} );
 
 $( 'button.btn[id^="deleteuser_"]' ).on( 'click', function (){
 
@@ -27,15 +27,15 @@ $( 'button.btn[id^="deleteuser_"]' ).on( 'click', function (){
 			console.log( msg )
 		}
 
-	})
+	} )
 
 
-})
+} )
 
 $( '#dealsBtn' ).on( 'click', function(){
 	$( '.imageHeader' ).hide();
 	// alert( 'click' )
-})
+} )
 
 
 // Google Maps
@@ -46,7 +46,7 @@ $( '#dealsBtn' ).on( 'click', function(){
 	console.log( "json" )
 	myjson = json;
 	$( "#map" ).trigger( "json:loaded" )
-  });
+  } );
 
 
 function addMarker( position, map ){
@@ -55,16 +55,16 @@ function addMarker( position, map ){
   var nMark = new google.maps.Marker( {
 	position: new google.maps.LatLng( position.latLng.H, position.latLng ),
 	map: map
-  })
+  } )
   console.log( nMark )
   console.log( map )
   //google.maps.event.addListener( nMark, 'click', function(){
 	//var infowindow = new google.maps.InfoWindow( {
 	  //content: "its working"
 
-	//});
+	//} );
 	//infowindow.open( map, nMark )
-  //})
+  //} )
 }
 
 $( "#map" ).on( "json:loaded", initMap );
@@ -73,8 +73,8 @@ function initMap() {
   var map = new google.maps.Map( document.getElementById( 'map' ), {
    //center: {lat: -34.397, lng: 150.644},
 	zoom: 12
-  });
-  var infoWindow = new google.maps.InfoWindow( {map: map});
+  } );
+  var infoWindow = new google.maps.InfoWindow( {map: map} );
 
 	  // Try HTML5 geolocation.
 	  if ( navigator.geolocation ) {
@@ -89,7 +89,7 @@ function initMap() {
 		   map.setCenter( pos );
 		 }, function() {
 		   handleLocationError( true, infoWindow, map.getCenter() );
-		 });
+		 } );
 	  } else {
 		 // Browser doesn't support Geolocation
 		 handleLocationError( false, infoWindow, map.getCenter() );
@@ -105,7 +105,7 @@ function initMap() {
 		var vendorMarker = new google.maps.Marker( {
 		  position: vendorPosition,
 		  map: map
-		});
+		} );
 
 		vendorMarkers.push( vendorMarker );
 		//getVendorInfo( vendorInfo, vendorMarker );
@@ -115,12 +115,12 @@ function initMap() {
 	  /*google.maps.event.addListener( map, "click", function( position ) {
 		console.log( position )
 		addMarker( position, map )
-	  })*/
+	  } )*/
 		var vendorPosition1 = new google.maps.LatLng( 34.0219, -120.4814 )
 		  var marker = new google.maps.Marker( {
 			  position: vendorPosition1,
 				  map: map
-			  });
+			  } );
 
 }
 
@@ -134,6 +134,15 @@ function handleLocationError( browserHasGeolocation, infoWindow, pos ) {
 }
 
 
-$('.collapsed').click('toggle', function(){
-	$('.logo').css('left', '150px');
-})
+$( '.collapsed' ).click( 'toggle', function(){
+	$( '.logo' ).css( 'left', '150px' );
+} )
+
+$( document ).ready( function () {
+  if( /\/profile/.test(window.location.href) ){
+	$(window).scrollTop(420)
+	/*var p = $( ".imageHeader" );
+	$( ".map-container" ).text( "scrollTop:" + p.scrollTop() );*/
+  }
+
+} )

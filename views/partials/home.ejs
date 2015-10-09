@@ -3,16 +3,8 @@
 	<div class="col-md-12">
 		<div class="social-container">
 			<div class="col-md-3 col-md-offset-1">
-			 	<div class="tweetBox-container">
-					<div class="tweetHeader">Tweet about Meal Deals</div>
-					<div class="tweetBox"></div>
-				</div>
-			</div>
-
-
-			<div class="col-md-3 col-md-offset-3">
 				<div class="home-deals-container">
-					<div class="dealHeader">Lates Meal Deals</div>
+					<div class="dealHeader">Latest Meal Deals</div>
 
 					<% for(var i=0; i< deals.length; i++) {  %>
 						<div class="meal-container"><!-- meal-container -->
@@ -28,11 +20,14 @@
 						</div><!-- meal-container -->
 					<% } %>
 
+				</div>
+			</div>
 
 
-
-
-
+			<div class="col-md-3 col-md-offset-3">
+				<div class="tweetBox-container">
+					<div class="tweetHeader">Current #mealdeal Tweets</div>
+					<div class="tweetBox"></div>
 				</div>
 			</div>
 		</div>
