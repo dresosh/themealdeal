@@ -104,7 +104,7 @@ module.exports = function( passport ){
 
         clientID        : configAuth.facebookAuth.clientID,
         clientSecret    : configAuth.facebookAuth.clientSecret,
-        callbackURL     : configAuth.facebookAuth.callbackURL,
+        callbackURL     : 'https://wearethemealdeal.herokuapp.com/' || configAuth.facebookAuth.callbackURL,
         passReqToCallback : true, // allows us to pass in the req from our route ( lets us check if a user is logged in or not )
         enableProof     : true,
         profileFields   : ["name", "emails"]
@@ -181,8 +181,8 @@ module.exports = function( passport ){
 
 //   var newUser	= new User();
 
-// newUser.local.email 	= 'vendor@vendor.com';
-// newUser.local.password 	= newUser.generateHash('vendor');
+// newUser.local.email 	= 'admin@admin.com';
+// newUser.local.password 	= newUser.generateHash('adm');
 // newUser.local.isvendor = true;
 
 // newUser.save();
