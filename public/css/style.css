@@ -37,6 +37,8 @@ h1, h4 {
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	margin-top: 10px;
+	float: left;
+	overflow: hidden;
 }
 
 .profile-tweetBox-container {
@@ -147,6 +149,7 @@ p {
 }
 
 
+
 .home-deals-container {
 	width: 420px;
 	height: 350px;
@@ -155,9 +158,10 @@ p {
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	margin-top: 10px;
-	float: left;
 	overflow: hidden;
 }
+
+
 
 .marginLeft {
 	margin-left:135px;
