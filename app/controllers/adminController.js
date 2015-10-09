@@ -11,7 +11,6 @@ function index ( req, res ) {
 	})
 }
 
-
 function show ( req, res ) {
 	//gets a single user
 	User.findById( req.params.user_id, function( err, user ) {
@@ -33,7 +32,7 @@ function destroy ( req, res ) {
 	}, function( err, deal ) {
 		if( err ) res.send( err )
 		res.json( {success: true, message: "Your user was deleted!"})
-	})
+	}) 
 }
 
 module.exports = {

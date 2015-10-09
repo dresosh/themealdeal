@@ -28,13 +28,5 @@ $('button.btn[id^="deleteuser_"]').on('click', function (){
         success:function(msg){
         	console.log(msg)
         }
-
 	})
-
-
-
-
-
-
-
 })

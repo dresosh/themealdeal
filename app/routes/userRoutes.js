@@ -49,6 +49,7 @@ module.exports = function( app, passport ) {
 	//	SIGN UP
 	//	=======
 	app.get( '/signup', function( req, res ) {
+		console.log( req )
 		res.render( 'signup' );
 	});
 
