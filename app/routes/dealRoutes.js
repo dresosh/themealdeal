@@ -13,14 +13,26 @@ var express 		= require( 'express' ),
     if ( req.isAuthenticated() ) {
         return next();
     }
+
+
     // console.log( req.isAuthenticated() );
 
     // Otherwise the request is always redirected to the home page
     res.redirect( '/'  );
   }
 
+
+ function isVendor( req, res, next ) {
+	//if authenticated move on
+	if ( global.user && global.user.local.isvendor === true ){
+		return next();
+	}
+
+	console.log("ends")
+}
+
 dealRouter.route( '/' ) // displays and adds to all deals
-	.get( dealsController.index )
+	.get( isVendor, dealsController.index )
 	.post( dealsController.create )
 
 dealRouter.route( '/:deal_id' )
