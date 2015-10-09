@@ -15,7 +15,6 @@ var express 		= require( "express" ),
 	bodyParser 		= require( 'body-parser' ),
 	flash			= require( 'connect-flash' ),
 	dealRouter 		= require( './app/routes/dealRoutes' ),
-	vendorRouter	= require( './app/routes/vendorRoutes' ),
 	userRouter		= require( './app/routes/userRoutes' ),
 	apiRouter		= require( './app/routes/apiRoutes'),
 	adminRouter		= require( './app/routes/adminRoutes'),
@@ -74,7 +73,6 @@ app.use( function ( req, res, next ){
 userRouter( app, passport ); //loads the routes and passes  in passport
 // app.use( '/users', userRouter ) when you get a request starting with users use the userRouter
 app.use( '/deals', dealRouter ); //when you get a request starting with deal use dealRouter
-app.use( '/vendors', vendorRouter );
 app.use( '/api', apiRouter );
 app.use( '/admin', adminRouter);
 
