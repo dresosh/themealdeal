@@ -132,3 +132,8 @@
 	                       'Error: The Geolocation service failed.' :
 	                       'Error: Your browser doesn\'t support geolocation.' );
 	}
+
+
+	$('.collapsed').click('toggle', function(){
+		$('.logo').css('left', '150px');
+	})
