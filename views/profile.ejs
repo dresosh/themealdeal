@@ -3,36 +3,75 @@
 
 	<!-- Acount Information -->
 	<div class="row"><!-- row div -->
-		<div class="col-md-8 col-md-offset-1">
+		<div class="col-md-10 col-md-offset-1">
 
-			<div class="jumbotron">
+			<div class="info-container"><!-- info-container -->
 					<h1>Welcome <%= user.facebook.name %></h1>
 				<div class="personalProfile">
-					<strong>Name</strong>: <%= user.facebook.name %><br>
-					<strong>email</strong>: <%= user.facebook.email %>
+					<h4>
+						Here you can find the newest Meal Deals in your area and let your friends know what food,
+						is delicious and affordable near you.
+					</h4>
 				</div>
-				<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-			</div>
-			<!-- <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3> -->
+			</div><!-- info-container -->
 		</div>
 	</div><!-- row div -->
+
+
+
+
+	<!-- Deals -->
+	<div class="row"><!-- row div -->
+		<div class="deals-container"><!-- map-container -->
+			<div class="col-md-10 col-md-offset-1">
+				<h1>Here are all the deals posted by Vendors in your City</h1>
+			</div>
+		</div><!-- map-container -->
+	</div><!-- row div -->
+
+
+
+
+	<!-- <div class="col-md-5">
+		<div class="deals-container"></div>
+	</div> -->
+
+
+	<div class="row"><!-- row div -->
+		<!-- <div class="col-md-5 col-md-offset-1">
+			<div class="map-container">
+			</div>
+		</div> -->
+		<div class="col-md-5">
+		</div>
+	</div><!-- row div -->
+
 
 
 	<!-- Map -->
 	<div class="row"><!-- row div -->
-		<div class="col-md-5 col-md-offset-1">
-			<div class="map-container">
-				<div style="width: 500px; height: 500px; margin: auto" id="map"></div>
+		<div class="map-container"><!-- map-container -->
+			<div class="col-md-10 col-md-offset-1">
+				<h1>Locate Vendors in your area with meal deals</h1>
+					<div class="map" id="map"></div>
 			</div>
-		</div>
-		<div class="col-md-5">
-			<div class="deals-container">
-
-				<%- include ./partials/deals.ejs%>
-
-			</div>
-		</div>
+		</div><!-- map-container -->
 	</div><!-- row div -->
+
+
+
+	<!-- Tweets -->
+
+	<!-- <div class="row">
+		<div class="col-md-10 col-md-offset-1">
+		 	<div class="profile-tweetBox-container">
+				<div class="tweetHeader">Tweet about Meal Deals</div>
+				<div class="profile-tweetBox"></div>
+			</div>
+		</div>
+	</div> -->
+
+
 
 
 
