@@ -37,15 +37,21 @@ function destroy ( req, res ) {
 
 function update ( req, res ) {
 	//update a deal
+	console.log(req.body)
+
 	User.findById( req.params.user_id, function( err, user ) {
 		
 		if( err ) res.send
-
+		console.log(user)
 		if( req.body.name ) user.name 			= req.body.name
 		if( req.body.email ) user.email 		= req.body.email
-		if( req.body.isvendor ) user.isvendor	= req.body.isvendor
+		if( req.body.isvendor ) {
+			console.log("trying to change isvendor")
+			user.local.isvendor	= req.body.isvendor
+		}
 
-		user.save( function( err ) {
+		user.save( function( err, user ) {
+			console.log(user)
 			if( err ) res.send( err )
 			res.json( {success: true, message: "User has been updated"})
 		})
