@@ -26,7 +26,8 @@ module.exports = function( passport ){
 		//USER LOCAL SIGNUP
 
 		passport.use( 'local-signup', new LocalStrategy( {
-			usernameField: 'email',
+            
+            usernameField: 'name',
 			passwordField: 'password',
 			passReqToCallback: true // passes through the request back to the callback
 		},
@@ -46,8 +47,13 @@ module.exports = function( passport ){
 
 						var newUser				= new User();
 
-						newUser.local.email 	= email;
-						newUser.local.password 	= newUser.generateHash( password );
+                        newUser.local.name              = req.body.name;
+                        newUser.local.email             = req.body.email;
+						newUser.local.password 	        = newUser.generateHash( password );
+                        newUser.local.businessname      = req.body.businessname;
+                        newUser.local.businessaddress   = req.body.businessaddress;
+                        newUser.local.longitude         = req.body.longitude;
+                        newUser.local.latitude          = req.body.latitude;   
 
 						newUser.save( function( err ) {
 							if ( err )
@@ -175,7 +181,7 @@ module.exports = function( passport ){
 
 //   var newUser	= new User();
 
-// newUser.local.email 	= 'deals3@gmail.com';
+// newUser.local.email 	= 'admin@admin.com';
 // newUser.local.password 	= newUser.generateHash('admin');
 // newUser.local.isAdmin = true; 
 

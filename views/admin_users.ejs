@@ -25,13 +25,13 @@
                   <td><%= users[i].id %></td>       
                   <td><%= users[i].local.name %></td>
                   <td><%= users[i].local.email %></td>
-                  <td><button type="text" id= "vendorchange_<%users[i].id%>" class="form-control" name="email"><%= users[i].local.isvendor %></button></td>
+                  <td><button type="text" id= "vendorchange_<%users[i].id%>" class="form-control" name="isvendor"><%= users[i].local.isvendor %></button></td>
                   <td><%= users[i].local.businessname %></td>
                   <td><%= users[i].local.businessaddress %></td>
                   <td><%= users[i].local.longitude %></td>
                   <td><%= users[i].local.latitude %></td>
                   <td>  <button type="button" class="btn" aria-label="Left Align"> 
-                        <%- link_to('show', '../admin/users/'+users[i].id) %>
+                        <%- link_to('show', './users/'+users[i].id) %>
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         </button>  
                   </td>
@@ -51,12 +51,12 @@
 
                         </button>  
                   </td>
-                </tr> 
-              <% } %>
+                  <% } %>
+                </tr>             
             </tbody>  
         </table>
       </div>
     </div>
   </div>
 </div>
-        <%- include ./partials/vendorsignup.ejs%>
+<%- include ./partials/vendorsignup.ejs%>

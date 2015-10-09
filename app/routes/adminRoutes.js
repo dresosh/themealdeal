@@ -13,7 +13,7 @@ adminRouter.route( '/users' ) // displays and adds to all deals
 adminRouter.route( '/users/:user_id' )
 
 	.get( adminController.show ) //gets individual deal
-	//.put( isAdmin, adminController.update ) //updates individual deal
+	.put( adminController.update ) //updates individual deal
 	.delete( adminController.destroy ) //deletes an individual deal
 
 
