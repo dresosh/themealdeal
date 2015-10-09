@@ -1,8 +1,6 @@
 .logo {
-	width: 200px;
-	height: 201px;
-	position: absolute;
-	top: 204px;
+	position: relative;
+	top: -167px;
 	left: 4;
 	z-index: 100;
 }
@@ -25,7 +23,7 @@ ul {
 	background: #dddddd;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
-	margin-top: 121px;
+	margin-top: 10px;
 }
 
 .tweetBox {
@@ -89,6 +87,7 @@ li a {
 
 li a:hover {
 	background: none !important;
+	color: #a20707;
 }
 
 .message-container {
@@ -111,7 +110,7 @@ p {
 
 .imageDeal-container {
 	width: 100%;
-	height: 500px;
+	max-height: 500px;
 	background: gray;
 }
 
@@ -123,7 +122,7 @@ p {
 	background: #dddddd;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
-	margin-top: 121px;
+	margin-top: 10px;
 	float: left;
 }
 
@@ -135,7 +134,7 @@ p {
 	max-width: 1000px;
 	height:500px;
 	background: gray;
-	margin: 121px 0 0 0;
+	margin: 100px 0 0 0;
 }
 
 .navbar-brand {
@@ -145,4 +144,32 @@ p {
 .navbar {
 	background: black;
 	border-radius: 0 !important;
+}
+
+
+.imageHeader {
+	width: 100%;
+	height: auto;
+	max-height: 500px;
+}
+
+.profile-container {
+	margin-top: -150px;
+}
+
+.map-container {
+	width: 500px;
+	height: 500px;
+	box-shadow: 0px 0px 10px #888888;
+}
+
+.personalProfile {
+	width: 500px;
+	height: 100px;
+}
+
+.deals-container {
+	width: 500px;
+	height: 500px;
+	background: red;
 }
